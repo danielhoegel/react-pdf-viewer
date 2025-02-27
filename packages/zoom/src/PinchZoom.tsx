@@ -43,6 +43,9 @@ export const PinchZoom: React.FC<{
         const target = e.target as HTMLElement;
         const rect = target.getBoundingClientRect();
         const scaleDiff = 1 - e.deltaY / 100;
+
+        const alternativeScaleDiff = Math.pow(0.9, e.deltaY * -0.01);
+
         const originX = e.clientX - rect.left;
         const originY = e.clientY - rect.top;
 
@@ -53,6 +56,19 @@ export const PinchZoom: React.FC<{
             .scale(scaleDiff)
             .translate(-originX, -originY)
             .scale(currentScale);
+
+        console.log('handleWheelEvent', {
+            target,
+            rect,
+            deltaY: e.deltaY,
+            scaleDiff,
+            alternativeScaleDiff,
+            originX,
+            originY,
+            currentScale,
+            matrix,
+        });
+
         zoomTo(matrix.a);
     };
 
