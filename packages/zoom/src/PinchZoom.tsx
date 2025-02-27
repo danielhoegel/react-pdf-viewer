@@ -53,7 +53,7 @@ export const PinchZoom: React.FC<{
         const matrix = createSvgElement()
             .createSVGMatrix()
             .translate(originX, originY)
-            .scale(scaleDiff)
+            .scale(alternativeScaleDiff)
             .translate(-originX, -originY)
             .scale(currentScale);
 

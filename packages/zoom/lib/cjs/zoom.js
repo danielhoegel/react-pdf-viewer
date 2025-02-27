@@ -104,7 +104,7 @@ const PinchZoom = ({ pagesContainerRef, store }) => {
     const originX = e.clientX - rect.left;
     const originY = e.clientY - rect.top;
     const currentScale = store.get("scale");
-    const matrix = createSvgElement().createSVGMatrix().translate(originX, originY).scale(scaleDiff).translate(-originX, -originY).scale(currentScale);
+    const matrix = createSvgElement().createSVGMatrix().translate(originX, originY).scale(alternativeScaleDiff).translate(-originX, -originY).scale(currentScale);
     console.log("handleWheelEvent", {
       target,
       rect,
